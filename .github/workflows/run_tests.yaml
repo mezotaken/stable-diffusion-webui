@@ -26,6 +26,7 @@ jobs:
           python launch.py
       - name: Upload main app stdout/stderr
         uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: stdout/stderr
           path: |
