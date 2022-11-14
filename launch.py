@@ -247,7 +247,8 @@ def tests(test_dir):
 
     print(f"Launching Web UI in another process for testing with arguments: {' '.join(sys.argv[1:])}")
 
-    proc = subprocess.Popen([sys.executable, *sys.argv])
+    with open('test/stdout.txt', "w", encoding="utf8") as stdout, open('test/stderr.txt', "w", encoding="utf8") as stderr:
+        proc = subprocess.Popen([sys.executable, *sys.argv], stdout=stdout, stderr=stderr)
 
     import test.server_poll
     exitcode = test.server_poll.run_tests(proc, test_dir)
