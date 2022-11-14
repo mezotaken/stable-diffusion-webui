@@ -24,3 +24,10 @@ jobs:
         run: |
           export COMMANDLINE_ARGS="--tests basic_features --no-half --disable-opt-split-attention --use-cpu all --skip-torch-cuda-test --port 80"
           python launch.py
+      - name: Upload main app stdout/stderr
+        uses: actions/upload-artifact@v3
+        with:
+          name: stdout/stderr
+          path: |
+            test/stdout.txt
+            test/stderr.txt
