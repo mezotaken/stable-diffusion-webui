@@ -1,7 +1,7 @@
 import unittest
-import coverage
 import requests
 import time
+from coverage import Coverage
 
 
 def run_tests(proc, test_dir):
@@ -18,7 +18,7 @@ def run_tests(proc, test_dir):
         if test_dir is None:
             test_dir = ""
 
-        cov = coverage()
+        cov = Coverage()
         cov.start()
 
         suite = unittest.TestLoader().discover(test_dir, pattern="*_test.py", top_level_dir="test")
