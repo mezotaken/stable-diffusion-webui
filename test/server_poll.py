@@ -25,8 +25,7 @@ def run_tests(proc, test_dir):
         result = unittest.TextTestRunner(verbosity=2).run(suite)
 
         cov.stop()
-        with open('coverage_report.xml', 'w') as f:
-            cov.xml_report(outfile=f)
+        cov.xml_report(outfile="coverage_report.xml")
 
         return len(result.failures) + len(result.errors)
     else:
