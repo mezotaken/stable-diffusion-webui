@@ -30,7 +30,7 @@ jobs:
             test/stdout.txt
             test/stderr.txt
       - name: Extract code coverage report
-        run: coverage xml --data-file test/coverage_data -o test/coverage_report.xml
+        run: coverage xml --data-file ./test/coverage_data -o ./test/coverage_report.xml
       - name: Show code coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
