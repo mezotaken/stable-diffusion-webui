@@ -256,7 +256,8 @@ def tests(test_dir):
     exitcode = test.server_poll.run_tests(proc, test_dir)
 
     print(f"Stopping Web UI process with id {proc.pid}")
-    proc.kill()
+    from signal import SIGTERM
+    os.kill(proc.pid, SIGTERM)
     return exitcode
 
 
