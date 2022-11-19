@@ -27,4 +27,3 @@ kornia
 lark
 inflection
 GitPython
-coverage
