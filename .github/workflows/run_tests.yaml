@@ -29,6 +29,7 @@ jobs:
           path: |
             test/stdout.txt
             test/stderr.txt
+            test/coverage_data
       - name: Extract code coverage report
         run: coverage xml --data-file ./test/coverage_data -o ./test/coverage_report.xml
       - name: Show code coverage report
