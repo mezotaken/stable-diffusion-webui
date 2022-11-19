@@ -1,7 +1,6 @@
 import unittest
 import requests
 import time
-from coverage import Coverage
 
 
 def run_tests(proc, test_dir):
@@ -17,17 +16,8 @@ def run_tests(proc, test_dir):
     if proc.poll() is None:
         if test_dir is None:
             test_dir = ""
-
-        cov = Coverage()
-        cov.start()
-
         suite = unittest.TestLoader().discover(test_dir, pattern="*_test.py", top_level_dir="test")
         result = unittest.TextTestRunner(verbosity=2).run(suite)
-
-        cov.stop()
-        open("coverage_report.xml","w").close()
-        cov.xml_report(outfile="coverage_report.xml")
-
         return len(result.failures) + len(result.errors)
     else:
         print("Launch unsuccessful")

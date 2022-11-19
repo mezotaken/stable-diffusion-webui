@@ -29,8 +29,10 @@ jobs:
           path: |
             test/stdout.txt
             test/stderr.txt
-      - name: Code Coverage Report
+      - name: Extract code coverage report
+        run: coverage xml -o test/coverage_report.xml
+      - name: Show code coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: coverage_report.xml
+          filename: test/coverage_report.xml
           badge: true
